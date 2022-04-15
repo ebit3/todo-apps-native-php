@@ -9,13 +9,30 @@
     <!-- css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="core/css/style.css">
+
     <title>Note Apps</title>
 </head>
 
-<body>
+<body class="d-flex">
 
-
-
+    <main class="box m-auto">
+        <div class="card">
+            <div class="card-body">
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label for="" class="form-label"> Username</label>
+                        <input type="text" name="username" id="username" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label"> Password</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <button class="btn btn-primary" type="submit" name="submit">Sing In</button>
+                </form>
+            </div>
+        </div>
+    </main>
 
     <!-- js -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
