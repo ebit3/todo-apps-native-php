@@ -36,3 +36,35 @@ function registrasi($data)
 
     return mysqli_affected_rows($conn);
 }
+
+
+function login($data)
+{
+    # code...
+
+    $conn = koneksi();
+
+    $username  = $data['username'];
+    $password  = $data['password'];
+
+    $sql = "SELECT * FROM tb_user WHERE username = '" . $username . "' ";
+
+    $query = mysqli_query($conn, $sql);
+
+    $cek = mysqli_num_rows($query);
+
+    if ($cek === 1) {
+
+        $row = mysqli_fetch_assoc($query);
+
+        if (password_verify($password, $row['password'])) {
+
+            header('location:index.php');
+        } else {
+
+            echo "<script>alert('Login Gagal');history.go(-1);</script>";
+        }
+    }
+
+    return $cek;
+}

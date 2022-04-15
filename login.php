@@ -1,3 +1,23 @@
+<?php
+
+require_once 'fungsi.php';
+
+$conn = koneksi();
+
+if (isset($_POST['submit'])) {
+
+
+    if (login($_POST) > 0) {
+
+        return true;
+    } else {
+
+        return false;
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
