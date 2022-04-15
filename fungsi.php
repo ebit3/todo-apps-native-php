@@ -62,9 +62,47 @@ function login($data)
             header('location:index.php');
         } else {
 
-            echo "<script>alert('Login Gagal');history.go(-1);</script>";
+            echo "<script>alert('password anda salah');history.go(-1);</script>";
         }
+    } else {
+
+        echo "<script>alert('username anda salah');history.go(-1);</script>";
     }
 
     return $cek;
+}
+
+
+function add_note($data)
+{
+    # code...
+
+    $conn = koneksi();
+
+    $note = $data['note'];
+
+    $sql = "INSERT INTO tb_data VALUES(NULL, '" . $note . "', '" . date('Y-m-d') . "', 'pending')";
+
+    mysqli_query($conn, $sql);
+
+    return mysqli_affected_rows($conn);
+}
+
+
+function show_note($sql)
+{
+    # code...
+
+    $conn = koneksi();
+
+    $query = mysqli_query($conn, $sql);
+
+    $row = [];
+
+    while ($rows = mysqli_fetch_assoc($query)) {
+
+        $row[] = $rows;
+    }
+
+    return $row;
 }
